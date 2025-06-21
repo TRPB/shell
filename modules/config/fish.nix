@@ -53,7 +53,7 @@ in
     enable = true;
     initExtra = lib.mkAfter ''
       SHELL=${pkgs.fish}/bin/fish
-      exec fish
+      exec ${pkgs.fish}/bin/fish
     '';
   };
   programs.fish = {
