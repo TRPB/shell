@@ -16,5 +16,12 @@
       default = false;
       description = "Enable the terminal config for user <name>";
     };
+
+    execInBash = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable automatically switch to fish after launching bash (for not using fish as login shell)";
+    };
+
   };
 }

@@ -49,13 +49,15 @@ in
     alias nvim='nvimStart'
   '';
 
-  programs.bash = {
-    enable = true;
-    initExtra = lib.mkAfter ''
-      SHELL=${pkgs.fish}/bin/fish
-      exec ${pkgs.fish}/bin/fish
-    '';
-  };
+  programs.bash = (
+    lib.mkIf config.trpb.shell.execInBash {
+      enable = true;
+      initExtra = lib.mkAfter ''
+        SHELL=${pkgs.fish}/bin/fish
+        exec ${pkgs.fish}/bin/fish
+      '';
+    }
+  );
   programs.fish = {
     enable = true;
     plugins = [
